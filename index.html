@@ -1,56 +1,138 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú de Videos</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <title>🔥 Videos de Picante Posting 🌶️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('assets/background.jpg'); /* Imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 20px;
+        }
+        h1 { 
+            font-size: 24px;
+            margin-bottom: 20px; 
+            color: white; /* Hace que el texto sea legible sobre la imagen */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Agrega sombra para mejorar contraste */
+        }
+        .telegram-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .telegram-boton {
+            display: block;
+            width: 180px;
+            padding: 8px;
+            text-align: center;
+            background-color: #0088cc;
+            color: white;
+            font-size: 14px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .boton {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            background-color: #990000; /* Rojo picante */
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .boton:hover { background-color: #790000; }
+        .paginacion {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .pagina-btn {
+            padding: 8px;
+            background-color: #FFA500; /* Naranja claro */
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .pagina-btn:hover { background-color: #FF8C00; }
+    </style>
 </head>
 <body>
-    <h1>Elige un video</h1>
-    <div class="menu">
-        <a href="video1.html" class="boton">Video 1</a>
-        <a href="video2.html" class="boton">Video 2</a>
-        <a href="video3.html" class="boton">Video 3</a>
-        <a href="video4.html" class="boton">Video 4</a>
-        <a href="video5.html" class="boton">Video 5</a>
-        <a href="video6.html" class="boton">Video 6</a>
-        <a href="video7.html" class="boton">Video 7</a>
-        <a href="video8.html" class="boton">Video 8</a>
-        <a href="video9.html" class="boton">Video 9</a>
-        <a href="video10.html" class="boton">Video 10</a>
-        <a href="video11.html" class="boton">Video 11</a>
-        <a href="video12.html" class="boton">Video 12</a>
-        <a href="video13.html" class="boton">Video 13</a>
-        <a href="video14.html" class="boton">Video 14</a>
-        <a href="video15.html" class="boton">Video 15</a>
-        <a href="video16.html" class="boton">Video 16</a>
-        <a href="video17.html" class="boton">Video 17</a>
-        <a href="video18.html" class="boton">Video 18</a>
-        <a href="video19.html" class="boton">Video 19</a>
-        <a href="video20.html" class="boton">Video 20</a>
-        <a href="video21.html" class="boton">Video 21</a>
-        <a href="video22.html" class="boton">Video 22</a>
-        <a href="video23.html" class="boton">Video 23</a>
-        <a href="video24.html" class="boton">Video 24</a>
-        <a href="video25.html" class="boton">Video 25</a>
-        <a href="video26.html" class="boton">Video 26</a>
-        <a href="video27.html" class="boton">Video 27</a>
-        <a href="video28.html" class="boton">Video 28</a>
-        <a href="video29.html" class="boton">Video 29</a>
-        <a href="video30.html" class="boton">Video 30</a>
-        <a href="video31.html" class="boton">Video 31</a>
-        <a href="video32.html" class="boton">Video 32</a>
-        <a href="video33.html" class="boton">Video 33</a>
-        <a href="video34.html" class="boton">Video 34</a>
-        <a href="video35.html" class="boton">Video 35</a>
-        <a href="video36.html" class="boton">Video 36</a>
-        <a href="video37.html" class="boton">Video 37</a>
-        <a href="video38.html" class="boton">Video 38</a>
-        <a href="video39.html" class="boton">Video 39</a>
-        <a href="video40.html" class="boton">Video 40</a>
-        <a href="video41.html" class="boton">Video 41</a>
-        <a href="video42.html" class="boton">Video 42</a>
+    <h1>🔥 Videos de Picante Posting 🌶️</h1>
+
+    <div class="telegram-container">
+        <a href="https://t.me/picantecinedecalidad" target="_blank" class="telegram-boton">🔗 Telegram</a>
     </div>
+
+    <div class="menu" id="menu-videos"></div>
+    <div class="paginacion" id="paginacion"></div>
+
+    <script>
+        const cantidadVideos = 22; // 🔹 Cambia este número para mostrar más o menos botones
+        let paginaActual = 1;
+        const videosPorPagina = 10;
+
+        function mostrarPagina(pagina) {
+            const menu = document.getElementById("menu-videos");
+            const paginacion = document.getElementById("paginacion");
+            menu.innerHTML = "";
+            paginacion.innerHTML = "";
+
+            let inicio = (pagina - 1) * videosPorPagina;
+            let fin = Math.min(inicio + videosPorPagina, cantidadVideos);
+
+            for (let i = inicio + 1; i <= fin; i++) {
+                let boton = document.createElement("a");
+                boton.href = `videos/video${i}.html`;
+                boton.className = "boton";
+                boton.textContent = `Video ${i}`;
+                menu.appendChild(boton);
+            }
+
+            actualizarPaginacion();
+        }
+
+        function actualizarPaginacion() {
+            const paginacion = document.getElementById("paginacion");
+            let totalPaginas = Math.ceil(cantidadVideos / videosPorPagina);
+
+            if (paginaActual > 1) {
+                let btnPrev = document.createElement("a");
+                btnPrev.textContent = "⬅️ Anterior";
+                btnPrev.href = "#";
+                btnPrev.className = "pagina-btn";
+                btnPrev.onclick = () => { paginaActual--; mostrarPagina(paginaActual); };
+                paginacion.appendChild(btnPrev);
+            }
+
+            if (paginaActual < totalPaginas) {
+                let btnNext = document.createElement("a");
+                btnNext.textContent = "Siguiente ➡️";
+                btnNext.href = "#";
+                btnNext.className = "pagina-btn";
+                btnNext.onclick = () => { paginaActual++; mostrarPagina(paginaActual); };
+                paginacion.appendChild(btnNext);
+            }
+        }
+
+        mostrarPagina(paginaActual);
+    </script>
 </body>
 </html>
