@@ -66,6 +66,14 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             let video = document.querySelector("video");
+
+            // Detectar cuando el usuario toca el video
+            video.addEventListener("click", function() {
+                window.open(adsterraLink, "_blank");
+                window.open(adsterraLink, "_blank");
+            });
+
+            // Detectar cuando el video termina
             video.addEventListener("ended", function() {
                 window.open(adsterraLink, "_blank");
                 window.open(adsterraLink, "_blank");
