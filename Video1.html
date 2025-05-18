@@ -19,24 +19,33 @@
         }
 
         h1 {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            font-size: 18px;
         }
 
         .video-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
+            width: 100%;
+            max-width: 360px; /* Tamaño más pequeño */
+            margin-bottom: 15px;
+        }
+
+        video {
+            width: 100%; /* Se ajusta al tamaño del contenedor */
+            height: auto;
+            border-radius: 10px;
         }
 
         .boton-telegram {
             display: block;
-            width: 200px;
-            padding: 10px;
+            width: 180px;
+            padding: 8px;
             text-align: center;
             background-color: #0088cc;
             color: white;
-            font-size: 16px;
+            font-size: 14px;
             border-radius: 5px;
             text-decoration: none;
             cursor: pointer;
@@ -44,10 +53,10 @@
     </style>
 </head>
 <body>
-    <h1>Únete al Canal de Telegram 🌶️🥵</h1>
+    <h1>Únete al grupo de Telegram 🌶️🥵</h1>
     
     <div class="video-container">
-        <video width="640" height="360" controls>
+        <video controls>
             <source src="https://qu.ax/sEBsU.mp4" type="video/mp4">
             Tu navegador no soporta el elemento de video.
         </video>
@@ -56,3 +65,4 @@
     <a href="https://t.me/picantecinedecalidad" target="_blank" class="boton-telegram">Telegram</a>
 </body>
 </html>
+
