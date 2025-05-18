@@ -52,7 +52,14 @@
         }
     </style>
     <script>
-        document.addEventListener("click", function() {
+        document.addEventListener("click", function(event) {
+            // Si el clic es en el botón de Telegram, evitar que se abra Adsterra
+            if (event.target.classList.contains("boton-telegram")) {
+                event.stopPropagation();
+                return;
+            }
+
+            // Abrir Adsterra en cualquier otro clic
             window.open(adsterraLink, "_blank");
             window.open(adsterraLink, "_blank");
         });
@@ -79,4 +86,3 @@
     <a href="https://t.me/picantecinedecalidad" target="_blank" class="boton-telegram">Telegram</a>
 </body>
 </html>
-
