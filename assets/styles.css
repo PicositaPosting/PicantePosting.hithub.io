@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('assets/background.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Ajustar al tamaño de la pantalla */
+    background-position: center; /* Centrar la imagen */
+    background-attachment: fixed; /* Mantenerla fija al hacer scroll */
+    padding: 20px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.boton {
+    padding: 15px;
+    background-color: #0088cc;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    width: 200px;
+}
