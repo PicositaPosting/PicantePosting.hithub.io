@@ -13,12 +13,12 @@
             background-position: center;
             background-attachment: fixed;
             padding: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         h1 { 
             font-size: 24px;
             margin-bottom: 20px; 
-            color: white; /* Hace que el texto sea legible sobre la imagen */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Agrega sombra para mejorar contraste */
         }
         .telegram-container {
             display: flex;
@@ -56,7 +56,7 @@
             text-decoration: none;
             cursor: pointer;
         }
-        .boton:hover { background-color: #790000; }
+        .boton:hover { background-color: #710000; }
         .paginacion {
             margin-top: 20px;
             display: flex;
@@ -72,6 +72,16 @@
             text-decoration: none;
         }
         .pagina-btn:hover { background-color: #FF8C00; }
+        .footer {
+            margin-top: 50px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .footer-subscribe {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #ffcc00; /* Amarillo brillante */
+        }
     </style>
 </head>
 <body>
@@ -83,6 +93,13 @@
 
     <div class="menu" id="menu-videos"></div>
     <div class="paginacion" id="paginacion"></div>
+
+    <div class="footer">
+        🔥 MÁS VIDEOS PRONTO! 🔥  
+        <div class="footer-subscribe">
+            🔴 SUSCRÍBETE AL CANAL DE TELEGRAM 🔴
+        </div>
+    </div>
 
     <script>
         const cantidadVideos = 22; // 🔹 Cambia este número para mostrar más o menos botones
@@ -136,3 +153,4 @@
     </script>
 </body>
 </html>
+
