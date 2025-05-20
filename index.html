@@ -1,165 +1,235 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 Videos de Picante Posting 🌶️</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-image: url('assets/background.jpg'); /* Imagen de fondo */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        h1 { 
-            font-size: 24px;
-            margin-bottom: 20px; 
-        }
-        .telegram-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .telegram-boton {
-            display: block;
-            width: 180px;
-            padding: 8px;
-            text-align: center;
-            background-color: #0088cc;
-            color: white;
-            font-size: 14px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .adsterra-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .menu {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            max-width: 600px;
-            margin: auto;
-        }
-        .boton {
-            display: block;
-            width: 200px;
-            padding: 10px;
-            background-color: #990000; /* Rojo picante */
-            color: white;
-            font-size: 16px;
-            text-align: center;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .boton:hover { background-color: #710000; }
-        .paginacion {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        .pagina-btn {
-            padding: 8px;
-            background-color: #FFA500; /* Naranja claro */
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .pagina-btn:hover { background-color: #FF8C00; }
-        .footer {
-            margin-top: 50px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .footer-subscribe {
-            margin-top: 10px;
-            font-size: 20px;
-            color: #ffcc00; /* Amarillo brillante */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 Videos de Picante Posting 🌶️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-image: url('assets/background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 20px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    h1 { font-size: 24px; margin-bottom: 20px; }
+    .social-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .social-boton {
+      display: block;
+      width: 180px;
+      padding: 8px;
+      text-align: center;
+      font-size: 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .telegram-boton { background-color: #0088cc; color: white; }
+    .facebook-boton { background-color: #3b5998; color: white; }
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .boton {
+      display: block;
+      width: 200px;
+      padding: 10px;
+      background-color: #990000;
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .boton:hover { background-color: #710000; }
+    .paginacion {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .pagina-btn {
+      padding: 8px;
+      background-color: #FFA500;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .pagina-btn:hover { background-color: #FF8C00; }
+    .salto-pagina { margin-top: 20px; text-align: center; }
+    .salto-container {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+    .salto-btn {
+      padding: 6px;
+      background-color: #FFA500;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .salto-btn:hover { background-color: #FF8C00; }
+    .footer {
+      margin-top: 50px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .footer-subscribe {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #ffcc00;
+    }
+  </style>
 </head>
 <body>
-    <h1>🔥 Videos de Picante Posting 🌶️</h1>
+  <h1>🔥 Videos de Picante Posting 🌶️</h1>
 
-    <div class="telegram-container">
-        <a href="https://t.me/picantecinedecalidad" target="_blank" class="telegram-boton">🔗 Telegram</a>
+  <div class="social-container">
+    <a href="https://t.me/picantecinedecalidad" target="_blank" class="social-boton telegram-boton">🔗 Telegram</a>
+    <a href="https://www.facebook.com/share/g/14HE9KdjAhP/" target="_blank" class="social-boton facebook-boton">📘 Facebook</a>
+  </div>
+
+  <div class="menu" id="menu-videos"></div>
+  <div class="paginacion" id="paginacion"></div>
+
+  <div class="salto-pagina">
+    <label>Ir a página:</label>
+    <div class="salto-container" id="salto-container"></div>
+  </div>
+
+  <div class="footer">
+    🔥 MÁS VIDEOS PRONTO! 🔥  
+    <div class="footer-subscribe">
+      🔴 SUSCRÍBETE AL CANAL DE TELEGRAM 🔴
     </div>
+  </div>
 
-    <div class="adsterra-container">
-        <script async="async" data-cfasync="false" src="//pl26687761.profitableratecpm.com/60229a85dc65f76f5e5e3be9464d77ba/invoke.js"></script>
-        <div id="container-60229a85dc65f76f5e5e3be9464d77ba"></div>
-    </div>
+  <script>
+    const cantidadVideos = 81;
+    let paginaActual = 1;
+    const videosPorPagina = 10;
+    const paginasPorGrupo = 5; // Tamaño de grupo para páginas (sin contar botones de salto extra)
 
-    <div class="menu" id="menu-videos"></div>
-    <div class="paginacion" id="paginacion"></div>
+    function mostrarPagina(pagina) {
+      paginaActual = pagina;
+      const menu = document.getElementById("menu-videos");
+      menu.innerHTML = "";
 
-    <div class="footer">
-        🔥 MÁS VIDEOS PRONTO! 🔥  
-        <div class="footer-subscribe">
-            🔴 SUSCRÍBETE AL CANAL DE TELEGRAM 🔴
-        </div>
-    </div>
+      let inicio = (pagina - 1) * videosPorPagina;
+      let fin = Math.min(inicio + videosPorPagina, cantidadVideos);
 
-    <script>
-        const cantidadVideos = 81; // 🔹 Cambia este número para mostrar más o menos botones
-        let paginaActual = 1;
-        const videosPorPagina = 10;
+      for (let i = inicio + 1; i <= fin; i++) {
+        let boton = document.createElement("a");
+        boton.href = `videos/video${i}.html`;
+        boton.className = "boton";
+        boton.textContent = `Video ${i}`;
+        menu.appendChild(boton);
+      }
 
-        function mostrarPagina(pagina) {
-            const menu = document.getElementById("menu-videos");
-            const paginacion = document.getElementById("paginacion");
-            menu.innerHTML = "";
-            paginacion.innerHTML = "";
+      actualizarPaginacion();
+      actualizarSaltoPagina();
+    }
 
-            let inicio = (pagina - 1) * videosPorPagina;
-            let fin = Math.min(inicio + videosPorPagina, cantidadVideos);
+    function actualizarPaginacion() {
+      const paginacion = document.getElementById("paginacion");
+      paginacion.innerHTML = "";
 
-            for (let i = inicio + 1; i <= fin; i++) {
-                let boton = document.createElement("a");
-                boton.href = `videos/video${i}.html`;
-                boton.className = "boton";
-                boton.textContent = `Video ${i}`;
-                menu.appendChild(boton);
-            }
+      if (paginaActual > 1) {
+        let btnPrev = document.createElement("a");
+        btnPrev.textContent = "⬅️ Anterior";
+        btnPrev.href = "#";
+        btnPrev.className = "pagina-btn";
+        btnPrev.onclick = () => mostrarPagina(paginaActual - 1);
+        paginacion.appendChild(btnPrev);
+      }
 
-            actualizarPaginacion();
+      if (paginaActual < Math.ceil(cantidadVideos / videosPorPagina)) {
+        let btnNext = document.createElement("a");
+        btnNext.textContent = "Siguiente ➡️";
+        btnNext.href = "#";
+        btnNext.className = "pagina-btn";
+        btnNext.onclick = () => mostrarPagina(paginaActual + 1);
+        paginacion.appendChild(btnNext);
+      }
+    }
+
+    function actualizarSaltoPagina() {
+      const saltoContainer = document.getElementById("salto-container");
+      saltoContainer.innerHTML = "";
+      let totalPaginas = Math.ceil(cantidadVideos / videosPorPagina);
+
+      // Si estamos en el primer grupo (páginas 1 a 5)
+      if (paginaActual <= paginasPorGrupo) {
+        for (let i = 1; i <= Math.min(paginasPorGrupo, totalPaginas); i++) {
+          let btn = document.createElement("button");
+          btn.textContent = i;
+          btn.className = "salto-btn";
+          btn.onclick = () => mostrarPagina(i);
+          saltoContainer.appendChild(btn);
+        }
+        // Si hay más páginas, mostrar botón derecho de salto al siguiente grupo
+        if (totalPaginas > paginasPorGrupo) {
+          let btnNextGroup = document.createElement("button");
+          btnNextGroup.textContent = (paginasPorGrupo + 1) + " ...";
+          btnNextGroup.className = "salto-btn";
+          btnNextGroup.onclick = () => mostrarPagina(paginasPorGrupo + 1);
+          saltoContainer.appendChild(btnNextGroup);
+        }
+      } else {
+        // Para grupos posteriores:
+        let currentGroupStart = Math.floor((paginaActual - 1) / paginasPorGrupo) * paginasPorGrupo + 1;
+        let currentGroupEnd = Math.min(totalPaginas, currentGroupStart + paginasPorGrupo - 1);
+
+        // Botón de salto hacia el grupo anterior (muestra el último número del grupo anterior)
+        if (currentGroupStart > 1) {
+          let btnPrevGroup = document.createElement("button");
+          btnPrevGroup.textContent = (currentGroupStart - 1) + " ...";
+          btnPrevGroup.className = "salto-btn";
+          btnPrevGroup.onclick = () => mostrarPagina(currentGroupStart - 1);
+          saltoContainer.appendChild(btnPrevGroup);
         }
 
-        function actualizarPaginacion() {
-            const paginacion = document.getElementById("paginacion");
-            let totalPaginas = Math.ceil(cantidadVideos / videosPorPagina);
-
-            if (paginaActual > 1) {
-                let btnPrev = document.createElement("a");
-                btnPrev.textContent = "⬅️ Anterior";
-                btnPrev.href = "#";
-                btnPrev.className = "pagina-btn";
-                btnPrev.onclick = () => { paginaActual--; mostrarPagina(paginaActual); };
-                paginacion.appendChild(btnPrev);
-            }
-
-            if (paginaActual < totalPaginas) {
-                let btnNext = document.createElement("a");
-                btnNext.textContent = "Siguiente ➡️";
-                btnNext.href = "#";
-                btnNext.className = "pagina-btn";
-                btnNext.onclick = () => { paginaActual++; mostrarPagina(paginaActual); };
-                paginacion.appendChild(btnNext);
-            }
+        // Mostrar las páginas del grupo actual
+        for (let i = currentGroupStart; i <= currentGroupEnd; i++) {
+          let btnPagina = document.createElement("button");
+          btnPagina.textContent = i;
+          btnPagina.className = "salto-btn";
+          btnPagina.onclick = () => mostrarPagina(i);
+          saltoContainer.appendChild(btnPagina);
         }
 
-        mostrarPagina(paginaActual);
-    </script>
+        // Botón de salto hacia el siguiente grupo, si hay más páginas
+        if (currentGroupEnd < totalPaginas) {
+          let btnNextGroup = document.createElement("button");
+          btnNextGroup.textContent = (currentGroupEnd + 1) + " ...";
+          btnNextGroup.className = "salto-btn";
+          btnNextGroup.onclick = () => mostrarPagina(currentGroupEnd + 1);
+          saltoContainer.appendChild(btnNextGroup);
+        }
+      }
+    }
+
+    mostrarPagina(paginaActual);
+  </script>
 </body>
 </html>
