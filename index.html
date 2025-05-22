@@ -36,6 +36,17 @@
     }
     .telegram-boton { background-color: #0088cc; color: white; }
     .facebook-boton { background-color: #3b5998; color: white; }
+    /* Botón Videos Especiales */
+    .especial-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #006600;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .especial-btn:hover { background-color: #004d00; }
     .menu {
       display: flex;
       flex-wrap: wrap;
@@ -85,7 +96,6 @@
       font-size: 14px;
       border-radius: 5px;
       cursor: pointer;
-      text-decoration: none;
       border: none;
     }
     .salto-btn:hover { background-color: #FF8C00; }
@@ -99,6 +109,35 @@
       font-size: 20px;
       color: #ffcc00;
     }
+    /* Modal de acceso */
+    #modal-acceso {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    #modal-acceso .modal-content {
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 300px;
+    }
+    #modal-acceso input {
+      padding: 8px;
+      width: 80%;
+      margin-bottom: 10px;
+    }
+    #modal-acceso button {
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+    #mensaje-error { color: red; }
   </style>
 </head>
 <body>
@@ -107,28 +146,43 @@
   <div class="social-container">
     <a href="https://t.me/picantecinedecalidad" target="_blank" class="social-boton telegram-boton">🔗 Telegram</a>
     <a href="https://www.facebook.com/share/g/16Cbie2pAE/" target="_blank" class="social-boton facebook-boton">📘 Facebook</a>
+    <!-- Botón "Videos Especiales" -->
+    <button id="btn-videos-especiales" class="especial-btn">Videos Especiales</button>
   </div>
 
+  <!-- Modal que solicita la llave de acceso -->
+  <div id="modal-acceso">
+    <div class="modal-content">
+      <h2>Acceso a Videos Especiales</h2>
+      <input type="text" id="access-key" placeholder="Ingresa la llave de acceso">
+      <br>
+      <button id="btn-ingresar">Acceder</button>
+      <br>
+      <p id="mensaje-error"></p>
+    </div>
+  </div>
+
+  <!-- Menú de videos regulares -->
   <div class="menu" id="menu-videos"></div>
   <div class="paginacion" id="paginacion"></div>
-
   <div class="salto-pagina">
     <label>Ir a página:</label>
     <div class="salto-container" id="salto-container"></div>
   </div>
 
   <div class="footer">
-    🔥 MÁS VIDEOS PRONTO! 🔥  
+    🔥 MÁS VIDEOS PRONTO! 🔥
     <div class="footer-subscribe">
       🔴 SUSCRÍBETE AL CANAL DE TELEGRAM 🔴
     </div>
   </div>
 
   <script>
+    // =================== Código del menú de videos regulares (paginación) ===================
     const cantidadVideos = 100;
     let paginaActual = 1;
-    const videosPorPagina = 10;
-    const paginasPorGrupo = 5; // Tamaño de grupo para páginas (sin contar botones de salto extra)
+    const videosPorPagina = 6;
+    const paginasPorGrupo = 5;
 
     function mostrarPagina(pagina) {
       paginaActual = pagina;
@@ -178,7 +232,6 @@
       saltoContainer.innerHTML = "";
       let totalPaginas = Math.ceil(cantidadVideos / videosPorPagina);
 
-      // Si estamos en el primer grupo (páginas 1 a 5)
       if (paginaActual <= paginasPorGrupo) {
         for (let i = 1; i <= Math.min(paginasPorGrupo, totalPaginas); i++) {
           let btn = document.createElement("button");
@@ -187,7 +240,6 @@
           btn.onclick = () => mostrarPagina(i);
           saltoContainer.appendChild(btn);
         }
-        // Si hay más páginas, mostrar botón derecho de salto al siguiente grupo
         if (totalPaginas > paginasPorGrupo) {
           let btnNextGroup = document.createElement("button");
           btnNextGroup.textContent = (paginasPorGrupo + 1) + " ...";
@@ -196,11 +248,9 @@
           saltoContainer.appendChild(btnNextGroup);
         }
       } else {
-        // Para grupos posteriores:
         let currentGroupStart = Math.floor((paginaActual - 1) / paginasPorGrupo) * paginasPorGrupo + 1;
         let currentGroupEnd = Math.min(totalPaginas, currentGroupStart + paginasPorGrupo - 1);
 
-        // Botón de salto hacia el grupo anterior (muestra el último número del grupo anterior)
         if (currentGroupStart > 1) {
           let btnPrevGroup = document.createElement("button");
           btnPrevGroup.textContent = (currentGroupStart - 1) + " ...";
@@ -209,7 +259,6 @@
           saltoContainer.appendChild(btnPrevGroup);
         }
 
-        // Mostrar las páginas del grupo actual
         for (let i = currentGroupStart; i <= currentGroupEnd; i++) {
           let btnPagina = document.createElement("button");
           btnPagina.textContent = i;
@@ -218,7 +267,6 @@
           saltoContainer.appendChild(btnPagina);
         }
 
-        // Botón de salto hacia el siguiente grupo, si hay más páginas
         if (currentGroupEnd < totalPaginas) {
           let btnNextGroup = document.createElement("button");
           btnNextGroup.textContent = (currentGroupEnd + 1) + " ...";
@@ -229,7 +277,30 @@
       }
     }
 
+    // Mostrar la página 1 por defecto
     mostrarPagina(paginaActual);
+
+    // =================== Funcionalidad de Videos Especiales ===================
+    // Define aquí la llave de acceso válida (puedes cambiarla manualmente cuando lo necesites)
+    const validAccessKey = "12345678901234567890";
+
+    // Mostrar el modal cuando se haga clic en "Videos Especiales"
+    document.getElementById('btn-videos-especiales').addEventListener('click', () => {
+      document.getElementById('modal-acceso').style.display = 'flex';
+    });
+
+    // Procesar el acceso al presionar el botón "Acceder" en el modal
+    document.getElementById('btn-ingresar').addEventListener('click', () => {
+      const accessKeyInput = document.getElementById('access-key').value.trim();
+      if (accessKeyInput === validAccessKey) {
+        // Guardar en sessionStorage que se ha concedido el acceso
+        sessionStorage.setItem('accessGranted', 'true');
+        // Redirigir a la sección de videos especiales
+        window.location.href = 'videos_especiales/menu.html';
+      } else {
+        document.getElementById('mensaje-error').textContent = 'Llave de acceso incorrecta. Intenta nuevamente.';
+      }
+    });
   </script>
 </body>
 </html>
