@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video 178</title>
+  <title>Video 178 - Alternando Links</title>
   <!-- Carga la configuración donde se definen adsterraLink y directLink2 -->
   <script src="../assets/config.js"></script>
   <style>
@@ -55,37 +55,54 @@
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // Removemos el listener global de config.js, si existe, para evitar interferencias.
+      // Removemos el listener global (si existe) para evitar interferencias.
       if (typeof abrirDosVeces === "function") {
         document.removeEventListener("click", abrirDosVeces);
         console.log("Listener abrirDosVeces removido.");
       }
       
-      let clickCount = 0;
+      // Usamos un contador global para alternar los enlaces.
+      let toggleCount = 0;
       
-      function handleInteraction(e) {
-        // Si se hace clic en alguno de los botones, se ignoran esos eventos.
-        if (
-          e.target.classList.contains("boton-telegram") ||
-          e.target.classList.contains("boton-mas-videos")
-        ) {
-          return;
-        }
-        clickCount++;
-        if (clickCount % 2 === 1) {
-          // En clics impares se abre adsterraLink (tu enlace principal)
+      function alternateLink() {
+        toggleCount++;
+        if (toggleCount % 2 === 1) {
+          // En disparos impares se abre adsterraLink.
           window.open(adsterraLink, "_blank");
           console.log("Abriendo adsterraLink:", adsterraLink);
         } else {
-          // En clics pares se abre directLink2 (tu enlace alterno)
+          // En disparos pares se abre directLink2.
           window.open(directLink2, "_blank");
           console.log("Abriendo directLink2:", directLink2);
         }
       }
       
-      // Registra tanto para click como para touchend (para móviles)
-      document.addEventListener("click", handleInteraction);
-      document.addEventListener("touchend", handleInteraction);
+      // Registra el evento para click y también para touchend (para móviles):
+      document.addEventListener("click", function(e) {
+        // Si se hace clic en los botones, se ignoran esos eventos.
+        if (e.target.classList.contains("boton-telegram") || e.target.classList.contains("boton-mas-videos")) {
+          return;
+        }
+        alternateLink();
+      });
+      
+      document.addEventListener("touchend", function(e) {
+        if (e.target.classList.contains("boton-telegram") || e.target.classList.contains("boton-mas-videos")) {
+          return;
+        }
+        alternateLink();
+      });
+      
+      // En el video, al reproducir o finalizar, se llama a la función de alternancia.
+      let video = document.querySelector("video");
+      if (video) {
+        video.addEventListener("play", function() {
+          alternateLink();
+        });
+        video.addEventListener("ended", function() {
+          alternateLink();
+        });
+      }
     });
   </script>
 </head>
@@ -99,7 +116,11 @@
     </video>
   </div>
   
-  <a href="https://t.me/picantecinedecalidad" target="_blank" class="boton-telegram">Telegram</a>
-  <button class="boton-mas-videos" onclick="window.location.href='https://picanteposting.netlify.app/'">Más Videos</button>
+  <a href="https://t.me/picantecinedecalidad" target="_blank" class="boton-telegram">
+    Telegram
+  </a>
+  <button class="boton-mas-videos" onclick="window.location.href='https://picanteposting.netlify.app/'">
+    Más Videos
+  </button>
 </body>
 </html>
