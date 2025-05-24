@@ -1,99 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video 177</title>
-    <!-- Carga la configuración que define adsterraLink -->
-    <script src="../assets/config.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video 177</title>
+  <!-- Carga la configuración donde se definen adsterraLink y directLink2 -->
+  <script src="../assets/config.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 360px;
+      margin-bottom: 15px;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .boton-telegram, .boton-mas-videos {
+      display: inline-block;
+      width: 180px;
+      padding: 8px;
+      margin: 5px;
+      text-align: center;
+      background-color: #0088cc;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .boton-mas-videos {
+      background-color: #FF8C00;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Removemos el listener global de config.js, si existe, para evitar interferencias.
+      if (typeof abrirDosVeces === "function") {
+        document.removeEventListener("click", abrirDosVeces);
+        console.log("Listener abrirDosVeces removido.");
+      }
+      
+      let clickCount = 0;
+      
+      function handleInteraction(e) {
+        // Si se hace clic en alguno de los botones, se ignoran esos eventos.
+        if (
+          e.target.classList.contains("boton-telegram") ||
+          e.target.classList.contains("boton-mas-videos")
+        ) {
+          return;
         }
-        h1 {
-            margin-bottom: 10px;
-            font-size: 18px;
+        clickCount++;
+        if (clickCount % 2 === 1) {
+          // En clics impares se abre adsterraLink (tu enlace principal)
+          window.open(adsterraLink, "_blank");
+          console.log("Abriendo adsterraLink:", adsterraLink);
+        } else {
+          // En clics pares se abre directLink2 (tu enlace alterno)
+          window.open(directLink2, "_blank");
+          console.log("Abriendo directLink2:", directLink2);
         }
-        .video-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            max-width: 360px;
-            margin-bottom: 15px;
-        }
-        video {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .boton-telegram, .boton-mas-videos {
-            display: inline-block;
-            width: 180px;
-            padding: 8px;
-            margin: 5px;
-            text-align: center;
-            background-color: #0088cc;
-            color: white;
-            font-size: 14px;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-        }
-        .boton-mas-videos {
-            background-color: #FF8C00;
-        }
-    </style>
-    <script>
-        /* Define el link directo de la otra persona.
-           Este enlace se abrirá al finalizar el video */
-        const otherDirectLink = "https://www.profitableratecpm.com/m2cvdnbxc6?key=c5db2b4842b3332c507fd71ef549a478";
-
-        // Al hacer clic (excepto en los botones) se abren las ventanas de adsterra
-        document.addEventListener("click", function(event) {
-            if (event.target.classList.contains("boton-telegram") || event.target.classList.contains("boton-mas-videos")) {
-                event.stopPropagation();
-                return;
-            }
-            window.open(adsterraLink, "_blank");
-            window.open(adsterraLink, "_blank");
-        });
-
-        // Manejo de eventos del video: al reproducir y al finalizar
-        document.addEventListener("DOMContentLoaded", function() {
-            let video = document.querySelector("video");
-            if (video) {
-                video.addEventListener("play", function() {
-                    window.open(adsterraLink, "_blank");
-                    window.open(adsterraLink, "_blank");
-                });
-                video.addEventListener("ended", function() {
-                    window.open(otherDirectLink, "_blank");
-                });
-            }
-        });
-    </script>
+      }
+      
+      // Registra tanto para click como para touchend (para móviles)
+      document.addEventListener("click", handleInteraction);
+      document.addEventListener("touchend", handleInteraction);
+    });
+  </script>
 </head>
 <body>
-    <h1>Únete al Canal de Telegram 🌶️🥵</h1>
-    
-    <div class="video-container">
-        <video controls>
-            <source src="https://cdn.videy.co/CA7Ii7hj1.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
-        </video>
-    </div>
-
-    <a href="https://t.me/picantecinedecalidad" target="_blank" class="boton-telegram">Telegram</a>
-    <button class="boton-mas-videos" onclick="window.location.href='https://picanteposting.netlify.app/'">Más Videos</button>
+  <h1>Únete al Canal de Telegram 🌶️🥵</h1>
+  
+  <div class="video-container">
+    <video controls>
+      <source src="https://cdn.videy.co/CA7Ii7hj1.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+  </div>
+  
+  <a href="https://t.me/picantecinedecalidad" target="_blank" class="boton-telegram">Telegram</a>
+  <button class="boton-mas-videos" onclick="window.location.href='https://picanteposting.netlify.app/'">Más Videos</button>
 </body>
 </html>
