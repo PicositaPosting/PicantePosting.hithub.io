@@ -15,8 +15,7 @@
         padding: 20px;
         color: white;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        /* Aumenta el margen inferior para que el contenido no quede tapado por el banner */
-        margin-bottom: 150px;
+        /* No es necesario reservar espacio, ya que el banner no será fijo */
       }
       h1 {
         font-size: 24px;
@@ -163,16 +162,13 @@
       #mensaje-error {
         color: red;
       }
-      /* Banner nativo fijo en la parte inferior */
+      /* Banner nativo al final del contenido */
       #native-banner {
-        position: fixed;
-        bottom: 0;
-        left: 0;
         width: 100%;
-        z-index: 10000;
         background-color: rgba(0, 0, 0, 0.8);
         text-align: center;
         padding: 10px 0;
+        margin-top: 20px;
       }
       /* Botón para cerrar el banner (opcional) */
       #close-banner {
@@ -241,9 +237,9 @@
       </div>
     </div>
 
-    <!-- Banner nativo en la parte inferior de la página -->
+    <!-- Banner nativo que se muestra al final del contenido -->
     <div id="native-banner">
-      <!-- Botón para cerrar el banner -->
+      <!-- Botón para cerrar el banner (opcional) -->
       <button id="close-banner">✕</button>
       <script
         async="async"
@@ -254,8 +250,8 @@
     </div>
 
     <script>
-      // Funcionalidad para cerrar el banner nativo al hacer clic en el botón
-      document.getElementById("close-banner").addEventListener("click", function() {
+      // Funcionalidad para cerrar el banner nativo
+      document.getElementById("close-banner").addEventListener("click", function () {
         document.getElementById("native-banner").style.display = "none";
       });
 
@@ -269,27 +265,18 @@
         paginaActual = pagina;
         const menu = document.getElementById("menu-videos");
         menu.innerHTML = "";
-
         let inicio = (pagina - 1) * videosPorPagina;
         let fin = Math.min(inicio + videosPorPagina, cantidadVideos);
-
         for (let i = inicio + 1; i <= fin; i++) {
           const boton = document.createElement("a");
           boton.href = `videos/video${i}.html`;
           boton.className = "boton";
           boton.textContent = `Video ${i}`;
-
-          // Listener que abre el popunder y redirige inmediatamente al video
+          // Al hacer clic, abrir el popunder y redirigir al video
           boton.addEventListener("click", function (e) {
             e.preventDefault();
             const linkDestino = this.href;
-
-            // Abrir el popunder mediante acción directa del usuario
-            const popunder = window.open(
-              "about:blank",
-              "popunder",
-              "width=800,height=600,top=-1000,left=-1000"
-            );
+            const popunder = window.open("about:blank", "popunder", "width=800,height=600,top=-1000,left=-1000");
             if (popunder) {
               popunder.document.open();
               popunder.document.write(`<!DOCTYPE html>
@@ -298,19 +285,15 @@
     <title>Publicidad</title>
   </head>
   <body>
-    <script type="text/javascript" src="//pl26768157.profitableratecpm.com/1c/93/3a/1c933ac1ee1a2d310e00d458a5f8bca9.js"></scr`+ "ipt>\n  </body>\n</html>");
+    <script type="text/javascript" src="//pl26768157.profitableratecpm.com/1c/93/3a/1c933ac1ee1a2d310e00d458a5f8bca9.js"></scr` + "ipt>\n  </body>\n</html>");
               popunder.document.close();
               popunder.blur();
               window.focus();
             }
-
-            // Redirigir inmediatamente al video, para que el usuario no note la acción
             window.location.href = linkDestino;
           });
-
           menu.appendChild(boton);
         }
-
         actualizarPaginacion();
         actualizarSaltoPagina();
       }
@@ -318,7 +301,6 @@
       function actualizarPaginacion() {
         const paginacion = document.getElementById("paginacion");
         paginacion.innerHTML = "";
-
         if (paginaActual > 1) {
           const btnPrev = document.createElement("a");
           btnPrev.textContent = "⬅️ Anterior";
@@ -327,7 +309,6 @@
           btnPrev.onclick = () => mostrarPagina(paginaActual - 1);
           paginacion.appendChild(btnPrev);
         }
-
         if (paginaActual < Math.ceil(cantidadVideos / videosPorPagina)) {
           const btnNext = document.createElement("a");
           btnNext.textContent = "Siguiente ➡️";
@@ -342,7 +323,6 @@
         const saltoContainer = document.getElementById("salto-container");
         saltoContainer.innerHTML = "";
         const totalPaginas = Math.ceil(cantidadVideos / videosPorPagina);
-
         if (paginaActual <= paginasPorGrupo) {
           for (let i = 1; i <= Math.min(paginasPorGrupo, totalPaginas); i++) {
             const btn = document.createElement("button");
@@ -361,7 +341,6 @@
         } else {
           const currentGroupStart = Math.floor((paginaActual - 1) / paginasPorGrupo) * paginasPorGrupo + 1;
           const currentGroupEnd = Math.min(totalPaginas, currentGroupStart + paginasPorGrupo - 1);
-
           if (currentGroupStart > 1) {
             const btnPrevGroup = document.createElement("button");
             btnPrevGroup.textContent = (currentGroupStart - 1) + " ...";
@@ -369,7 +348,6 @@
             btnPrevGroup.onclick = () => mostrarPagina(currentGroupStart - 1);
             saltoContainer.appendChild(btnPrevGroup);
           }
-
           for (let i = currentGroupStart; i <= currentGroupEnd; i++) {
             const btnPagina = document.createElement("button");
             btnPagina.textContent = i;
@@ -377,7 +355,6 @@
             btnPagina.onclick = () => mostrarPagina(i);
             saltoContainer.appendChild(btnPagina);
           }
-
           if (currentGroupEnd < totalPaginas) {
             const btnNextGroup = document.createElement("button");
             btnNextGroup.textContent = (currentGroupEnd + 1) + " ...";
