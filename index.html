@@ -15,8 +15,8 @@
         padding: 20px;
         color: white;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        /* Se añade un margen inferior para que el contenido no se oculte debajo del banner */
-        margin-bottom: 120px;
+        /* Aumenta el margen inferior para que el contenido no quede tapado por el banner */
+        margin-bottom: 150px;
       }
       h1 {
         font-size: 24px;
@@ -163,7 +163,7 @@
       #mensaje-error {
         color: red;
       }
-      /* Contenedor para el banner nativo */
+      /* Banner nativo fijo en la parte inferior */
       #native-banner {
         position: fixed;
         bottom: 0;
@@ -173,6 +173,17 @@
         background-color: rgba(0, 0, 0, 0.8);
         text-align: center;
         padding: 10px 0;
+      }
+      /* Botón para cerrar el banner (opcional) */
+      #close-banner {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background: transparent;
+        color: white;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -232,6 +243,8 @@
 
     <!-- Banner nativo en la parte inferior de la página -->
     <div id="native-banner">
+      <!-- Botón para cerrar el banner -->
+      <button id="close-banner">✕</button>
       <script
         async="async"
         data-cfasync="false"
@@ -241,6 +254,11 @@
     </div>
 
     <script>
+      // Funcionalidad para cerrar el banner nativo al hacer clic en el botón
+      document.getElementById("close-banner").addEventListener("click", function() {
+        document.getElementById("native-banner").style.display = "none";
+      });
+
       // =================== Código del menú de videos (paginación) ===================
       const cantidadVideos = 250;
       let paginaActual = 25;
@@ -266,7 +284,7 @@
             e.preventDefault();
             const linkDestino = this.href;
 
-            // Abrir el popunder inmediatamente mediante acción directa del usuario
+            // Abrir el popunder mediante acción directa del usuario
             const popunder = window.open(
               "about:blank",
               "popunder",
@@ -280,13 +298,13 @@
     <title>Publicidad</title>
   </head>
   <body>
-    <script type="text/javascript" src="//pl26768157.profitableratecpm.com/1c/93/3a/1c933ac1ee1a2d310e00d458a5f8bca9.js"></scr` + "ipt>\n  </body>\n</html>");
+    <script type="text/javascript" src="//pl26768157.profitableratecpm.com/1c/93/3a/1c933ac1ee1a2d310e00d458a5f8bca9.js"></scr`+ "ipt>\n  </body>\n</html>");
               popunder.document.close();
               popunder.blur();
               window.focus();
             }
 
-            // Redirigir inmediatamente al video, de modo que el usuario no note la acción
+            // Redirigir inmediatamente al video, para que el usuario no note la acción
             window.location.href = linkDestino;
           });
 
@@ -341,8 +359,7 @@
             saltoContainer.appendChild(btnNextGroup);
           }
         } else {
-          const currentGroupStart =
-            Math.floor((paginaActual - 1) / paginasPorGrupo) * paginasPorGrupo + 1;
+          const currentGroupStart = Math.floor((paginaActual - 1) / paginasPorGrupo) * paginasPorGrupo + 1;
           const currentGroupEnd = Math.min(totalPaginas, currentGroupStart + paginasPorGrupo - 1);
 
           if (currentGroupStart > 1) {
