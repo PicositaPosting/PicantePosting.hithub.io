@@ -199,6 +199,26 @@
         boton.href = `videos/video${i}.html`;
         boton.className = "boton";
         boton.textContent = `Video ${i}`;
+
+        // Agregamos un listener para el popunder de Adsterra y la redirección
+        boton.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevenir la redirección inmediata
+          
+          // Guardamos la URL de destino
+          const linkDestino = this.href;
+          
+          // Insertar el script del popunder de Adsterra en el DOM
+          let script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = '//pl26768157.profitableratecpm.com/1c/93/3a/1c933ac1ee1a2d310e00d458a5f8bca9.js';
+          document.body.appendChild(script);
+
+          // Redirigir tras un breve retardo para que se ejecute el popunder
+          setTimeout(() => {
+            window.location.href = linkDestino;
+          }, 200); // El retardo se puede ajustar según sea necesario
+        });
+
         menu.appendChild(boton);
       }
 
@@ -279,19 +299,19 @@
       }
     }
 
-    // Mostrar la página 1 por defecto
+    // Mostrar la página por defecto
     mostrarPagina(paginaActual);
 
     // =================== Funcionalidad de Videos Especiales ===================
-    // Define aquí la llave de acceso válida (puedes cambiarla manualmente cuando lo necesites)
+    // Llave de acceso válida para Videos Especiales
     const validAccessKey = "X8F7L9W2A6C3Z1B5D0E4YQVTN";
 
-    // Mostrar el modal cuando se haga clic en "Videos Especiales"
+    // Mostrar el modal al hacer clic en "Videos Especiales"
     document.getElementById('btn-videos-especiales').addEventListener('click', () => {
       document.getElementById('modal-acceso').style.display = 'flex';
     });
 
-    // Procesar el acceso al presionar el botón "Acceder" en el modal
+    // Procesar el acceso al presionar "Acceder" en el modal
     document.getElementById('btn-ingresar').addEventListener('click', () => {
       const accessKeyInput = document.getElementById('access-key').value.trim();
       if (accessKeyInput === validAccessKey) {
@@ -304,7 +324,7 @@
       }
     });
 
-    // Evento para cerrar el modal
+    // Cerrar el modal de acceso
     document.getElementById('btn-cerrar').addEventListener('click', () => {
       document.getElementById('modal-acceso').style.display = 'none';
     });
