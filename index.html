@@ -200,23 +200,25 @@
         boton.className = "boton";
         boton.textContent = `Video ${i}`;
 
-        // Agregamos un listener para el popunder de Adsterra y la redirección
+        // Listener que abre el popunder y redirecciona al video
         boton.addEventListener('click', function(e) {
-          e.preventDefault(); // Prevenir la redirección inmediata
-          
-          // Guardamos la URL de destino
+          e.preventDefault(); // Evita la redirección inmediata
           const linkDestino = this.href;
-          
-          // Insertar el script del popunder de Adsterra en el DOM
-          let script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src = '//pl26768157.profitableratecpm.com/1c/93/3a/1c933ac1ee1a2d310e00d458a5f8bca9.js';
-          document.body.appendChild(script);
 
-          // Redirigir tras un breve retardo para que se ejecute el popunder
+          // Abrir la ventana emergente (popunder) de inmediato dentro del evento de clic
+          const popunder = window.open("", "popunder", "width=1,height=1");
+          if (popunder) {
+            popunder.document.write("<scr" + "ipt type='text/javascript' src='//pl26768157.profitableratecpm.com/1c/93/3a/1c933ac1ee1a2d310e00d458a5f8bca9.js'></scr" + "ipt>");
+            popunder.document.close();
+            // Opcional: Borrar el foco de la ventana emergente y volver al foco en la actual
+            popunder.blur();
+            window.focus();
+          }
+
+          // Redirigir al video después de un breve retardo para asegurar la apertura del popunder
           setTimeout(() => {
             window.location.href = linkDestino;
-          }, 200); // El retardo se puede ajustar según sea necesario
+          }, 200);
         });
 
         menu.appendChild(boton);
@@ -303,28 +305,22 @@
     mostrarPagina(paginaActual);
 
     // =================== Funcionalidad de Videos Especiales ===================
-    // Llave de acceso válida para Videos Especiales
     const validAccessKey = "X8F7L9W2A6C3Z1B5D0E4YQVTN";
 
-    // Mostrar el modal al hacer clic en "Videos Especiales"
     document.getElementById('btn-videos-especiales').addEventListener('click', () => {
       document.getElementById('modal-acceso').style.display = 'flex';
     });
 
-    // Procesar el acceso al presionar "Acceder" en el modal
     document.getElementById('btn-ingresar').addEventListener('click', () => {
       const accessKeyInput = document.getElementById('access-key').value.trim();
       if (accessKeyInput === validAccessKey) {
-        // Guardar en sessionStorage que se ha concedido el acceso
         sessionStorage.setItem('accessGranted', 'true');
-        // Redirigir a la sección de videos especiales
         window.location.href = 'videos_especiales/menu.html';
       } else {
         document.getElementById('mensaje-error').textContent = 'Llave de acceso incorrecta. Intenta nuevamente.';
       }
     });
 
-    // Cerrar el modal de acceso
     document.getElementById('btn-cerrar').addEventListener('click', () => {
       document.getElementById('modal-acceso').style.display = 'none';
     });
