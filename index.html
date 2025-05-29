@@ -1,394 +1,313 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🔥 Videos de Picante Posting 🌶️</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-image: url('assets/background.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        padding: 20px;
-        color: white;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        /* No es necesario reservar espacio, ya que el banner no será fijo */
-      }
-      h1 {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-      .social-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
-      .social-boton {
-        display: block;
-        width: 180px;
-        padding: 8px;
-        text-align: center;
-        font-size: 14px;
-        border-radius: 5px;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .telegram-boton {
-        background-color: #0088cc;
-        color: white;
-      }
-      .facebook-boton {
-        background-color: #3b5998;
-        color: white;
-      }
-      /* Botón Videos Especiales */
-      .especial-btn {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #006600;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      .especial-btn:hover {
-        background-color: #004d00;
-      }
-      .menu {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        max-width: 600px;
-        margin: auto;
-      }
-      .boton {
-        display: block;
-        width: 200px;
-        padding: 10px;
-        background-color: #990000;
-        color: white;
-        font-size: 16px;
-        text-align: center;
-        border-radius: 5px;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .boton:hover {
-        background-color: #710000;
-      }
-      .paginacion {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-      }
-      .pagina-btn {
-        padding: 8px;
-        background-color: #ffa500;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-        text-decoration: none;
-      }
-      .pagina-btn:hover {
-        background-color: #ff8c00;
-      }
-      .salto-pagina {
-        margin-top: 20px;
-        text-align: center;
-      }
-      .salto-container {
-        display: flex;
-        justify-content: center;
-        gap: 5px;
-      }
-      .salto-btn {
-        padding: 6px;
-        background-color: #ffa500;
-        color: white;
-        font-size: 14px;
-        border-radius: 5px;
-        cursor: pointer;
-        border: none;
-      }
-      .salto-btn:hover {
-        background-color: #ff8c00;
-      }
-      .footer {
-        margin-top: 50px;
-        font-size: 18px;
-        font-weight: bold;
-      }
-      .footer-subscribe {
-        margin-top: 10px;
-        font-size: 20px;
-        color: #ffcc00;
-      }
-      /* Modal de acceso */
-      #modal-acceso {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        justify-content: center;
-        align-items: center;
-      }
-      #modal-acceso .modal-content {
-        background: #333;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        max-width: 300px;
-      }
-      #modal-acceso input {
-        padding: 8px;
-        width: 80%;
-        margin-bottom: 10px;
-      }
-      #modal-acceso button {
-        padding: 8px 16px;
-        cursor: pointer;
-        margin: 5px;
-      }
-      #mensaje-error {
-        color: red;
-      }
-      /* Banner nativo al final del contenido */
-      #native-banner {
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        text-align: center;
-        padding: 10px 0;
-        margin-top: 20px;
-      }
-      /* Botón para cerrar el banner (opcional) */
-      #close-banner {
-        position: absolute;
-        top: 5px;
-        right: 10px;
-        background: transparent;
-        color: white;
-        border: none;
-        font-size: 18px;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>🔥 Videos de Picante Posting 🌶️</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 Videos de Picante Posting 🌶️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-image: url('assets/background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 20px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    h1 { font-size: 24px; margin-bottom: 20px; }
+    .social-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .social-boton {
+      display: block;
+      width: 180px;
+      padding: 8px;
+      text-align: center;
+      font-size: 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .telegram-boton { background-color: #0088cc; color: white; }
+    .facebook-boton { background-color: #3b5998; color: white; }
+    /* Botón Videos Especiales */
+    .especial-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #006600;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .especial-btn:hover { background-color: #004d00; }
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .boton {
+      display: block;
+      width: 200px;
+      padding: 10px;
+      background-color: #990000;
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .boton:hover { background-color: #710000; }
+    .paginacion {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .pagina-btn {
+      padding: 8px;
+      background-color: #FFA500;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .pagina-btn:hover { background-color: #FF8C00; }
+    .salto-pagina { margin-top: 20px; text-align: center; }
+    .salto-container {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+    .salto-btn {
+      padding: 6px;
+      background-color: #FFA500;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+    }
+    .salto-btn:hover { background-color: #FF8C00; }
+    .footer {
+      margin-top: 50px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .footer-subscribe {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #ffcc00;
+    }
+    /* Modal de acceso */
+    #modal-acceso {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    #modal-acceso .modal-content {
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 300px;
+    }
+    #modal-acceso input {
+      padding: 8px;
+      width: 80%;
+      margin-bottom: 10px;
+    }
+    #modal-acceso button {
+      padding: 8px 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    #mensaje-error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>🔥 Videos de Picante Posting 🌶️</h1>
 
-    <div class="social-container">
-      <a
-        href="https://t.me/picantecinedecalidad"
-        target="_blank"
-        class="social-boton telegram-boton"
-        >🔗 Telegram</a
-      >
-      <a
-        href="https://www.facebook.com/share/g/16Cbie2pAE/"
-        target="_blank"
-        class="social-boton facebook-boton"
-        >📘 Facebook</a
-      >
-      <!-- Botón "Videos Especiales" -->
-      <button id="btn-videos-especiales" class="especial-btn">
-        Videos Especiales
-      </button>
+  <div class="social-container">
+    <a href="https://t.me/picantecinedecalidad" target="_blank" class="social-boton telegram-boton">🔗 Telegram</a>
+    <a href="https://www.facebook.com/share/g/16Cbie2pAE/" target="_blank" class="social-boton facebook-boton">📘 Facebook</a>
+    <!-- Botón "Videos Especiales" -->
+    <button id="btn-videos-especiales" class="especial-btn">Videos Especiales</button>
+  </div>
+
+  <!-- Modal que solicita la llave de acceso -->
+  <div id="modal-acceso">
+    <div class="modal-content">
+      <h2>Llave de Acceso en el Canal de Telegram</h2>
+      <input type="text" id="access-key" placeholder="Ingresa la llave de acceso">
+      <br>
+      <button id="btn-ingresar">Acceder</button>
+      <button id="btn-cerrar">Cerrar</button>
+      <br>
+      <p id="mensaje-error"></p>
     </div>
+  </div>
 
-    <!-- Modal que solicita la llave de acceso -->
-    <div id="modal-acceso">
-      <div class="modal-content">
-        <h2>Llave de Acceso en el Canal de Telegram</h2>
-        <input
-          type="text"
-          id="access-key"
-          placeholder="Ingresa la llave de acceso"
-        />
-        <br />
-        <button id="btn-ingresar">Acceder</button>
-        <button id="btn-cerrar">Cerrar</button>
-        <br />
-        <p id="mensaje-error"></p>
-      </div>
+  <!-- Menú de videos regulares -->
+  <div class="menu" id="menu-videos"></div>
+  <div class="paginacion" id="paginacion"></div>
+  <div class="salto-pagina">
+    <label>Ir a página:</label>
+    <div class="salto-container" id="salto-container"></div>
+  </div>
+
+  <div class="footer">
+    🔥 MÁS VIDEOS PRONTO! 🔥
+    <div class="footer-subscribe">
+      🔴 SUSCRÍBETE AL CANAL DE TELEGRAM 🔴
     </div>
+  </div>
 
-    <!-- Menú de videos regulares -->
-    <div class="menu" id="menu-videos"></div>
-    <div class="paginacion" id="paginacion"></div>
-    <div class="salto-pagina">
-      <label>Ir a página:</label>
-      <div class="salto-container" id="salto-container"></div>
-    </div>
+  <script>
+    // =================== Código del menú de videos regulares (paginación) ===================
+    const cantidadVideos = 311;
+    let paginaActual = 30;
+    const videosPorPagina = 10;
+    const paginasPorGrupo = 5;
 
-    <div class="footer">
-      🔥 MÁS VIDEOS PRONTO! 🔥
-      <div class="footer-subscribe">
-        🔴 SUSCRÍBETE AL CANAL DE TELEGRAM 🔴
-      </div>
-    </div>
+    function mostrarPagina(pagina) {
+      paginaActual = pagina;
+      const menu = document.getElementById("menu-videos");
+      menu.innerHTML = "";
 
-    <!-- Banner nativo que se muestra al final del contenido -->
-    <div id="native-banner">
-      <!-- Botón para cerrar el banner (opcional) -->
-      <button id="close-banner">✕</button>
-      <script
-        async="async"
-        data-cfasync="false"
-        src="//pl26687761.profitableratecpm.com/60229a85dc65f76f5e5e3be9464d77ba/invoke.js"
-      ></script>
-      <div id="container-60229a85dc65f76f5e5e3be9464d77ba"></div>
-    </div>
+      let inicio = (pagina - 1) * videosPorPagina;
+      let fin = Math.min(inicio + videosPorPagina, cantidadVideos);
 
-    <script>
-      // Funcionalidad para cerrar el banner nativo
-      document.getElementById("close-banner").addEventListener("click", function () {
-        document.getElementById("native-banner").style.display = "none";
-      });
+      for (let i = inicio + 1; i <= fin; i++) {
+        let boton = document.createElement("a");
+        boton.href = `videos/video${i}.html`;
+        boton.className = "boton";
+        boton.textContent = `Video ${i}`;
+        menu.appendChild(boton);
+      }
 
-      // =================== Código del menú de videos (paginación) ===================
-      const cantidadVideos = 311;
-      let paginaActual = 30;
-      const videosPorPagina = 10;
-      const paginasPorGrupo = 5;
+      actualizarPaginacion();
+      actualizarSaltoPagina();
+    }
 
-      function mostrarPagina(pagina) {
-        paginaActual = pagina;
-        const menu = document.getElementById("menu-videos");
-        menu.innerHTML = "";
-        let inicio = (pagina - 1) * videosPorPagina;
-        let fin = Math.min(inicio + videosPorPagina, cantidadVideos);
-        for (let i = inicio + 1; i <= fin; i++) {
-          const boton = document.createElement("a");
-          boton.href = `videos/video${i}.html`;
-          boton.className = "boton";
-          boton.textContent = `Video ${i}`;
-          // Al hacer clic, abrir el popunder y redirigir al video
-          boton.addEventListener("click", function (e) {
-            e.preventDefault();
-            const linkDestino = this.href;
-            const popunder = window.open("about:blank", "popunder", "width=800,height=600,top=-1000,left=-1000");
-            if (popunder) {
-              popunder.document.open();
-              popunder.document.write(`<!DOCTYPE html>
-<html>
-  <head>
-    <title>Publicidad</title>
-  </head>
-  <body>
-    <script type="text/javascript" src="//pl26768157.profitableratecpm.com/1c/93/3a/1c933ac1ee1a2d310e00d458a5f8bca9.js"></scr` + "ipt>\n  </body>\n</html>");
-              popunder.document.close();
-              popunder.blur();
-              window.focus();
-            }
-            window.location.href = linkDestino;
-          });
-          menu.appendChild(boton);
+    function actualizarPaginacion() {
+      const paginacion = document.getElementById("paginacion");
+      paginacion.innerHTML = "";
+
+      if (paginaActual > 1) {
+        let btnPrev = document.createElement("a");
+        btnPrev.textContent = "⬅️ Anterior";
+        btnPrev.href = "#";
+        btnPrev.className = "pagina-btn";
+        btnPrev.onclick = () => mostrarPagina(paginaActual - 1);
+        paginacion.appendChild(btnPrev);
+      }
+
+      if (paginaActual < Math.ceil(cantidadVideos / videosPorPagina)) {
+        let btnNext = document.createElement("a");
+        btnNext.textContent = "Siguiente ➡️";
+        btnNext.href = "#";
+        btnNext.className = "pagina-btn";
+        btnNext.onclick = () => mostrarPagina(paginaActual + 1);
+        paginacion.appendChild(btnNext);
+      }
+    }
+
+    function actualizarSaltoPagina() {
+      const saltoContainer = document.getElementById("salto-container");
+      saltoContainer.innerHTML = "";
+      let totalPaginas = Math.ceil(cantidadVideos / videosPorPagina);
+
+      if (paginaActual <= paginasPorGrupo) {
+        for (let i = 1; i <= Math.min(paginasPorGrupo, totalPaginas); i++) {
+          let btn = document.createElement("button");
+          btn.textContent = i;
+          btn.className = "salto-btn";
+          btn.onclick = () => mostrarPagina(i);
+          saltoContainer.appendChild(btn);
         }
-        actualizarPaginacion();
-        actualizarSaltoPagina();
-      }
-
-      function actualizarPaginacion() {
-        const paginacion = document.getElementById("paginacion");
-        paginacion.innerHTML = "";
-        if (paginaActual > 1) {
-          const btnPrev = document.createElement("a");
-          btnPrev.textContent = "⬅️ Anterior";
-          btnPrev.href = "#";
-          btnPrev.className = "pagina-btn";
-          btnPrev.onclick = () => mostrarPagina(paginaActual - 1);
-          paginacion.appendChild(btnPrev);
+        if (totalPaginas > paginasPorGrupo) {
+          let btnNextGroup = document.createElement("button");
+          btnNextGroup.textContent = (paginasPorGrupo + 1) + " ...";
+          btnNextGroup.className = "salto-btn";
+          btnNextGroup.onclick = () => mostrarPagina(paginasPorGrupo + 1);
+          saltoContainer.appendChild(btnNextGroup);
         }
-        if (paginaActual < Math.ceil(cantidadVideos / videosPorPagina)) {
-          const btnNext = document.createElement("a");
-          btnNext.textContent = "Siguiente ➡️";
-          btnNext.href = "#";
-          btnNext.className = "pagina-btn";
-          btnNext.onclick = () => mostrarPagina(paginaActual + 1);
-          paginacion.appendChild(btnNext);
+      } else {
+        let currentGroupStart = Math.floor((paginaActual - 1) / paginasPorGrupo) * paginasPorGrupo + 1;
+        let currentGroupEnd = Math.min(totalPaginas, currentGroupStart + paginasPorGrupo - 1);
+
+        if (currentGroupStart > 1) {
+          let btnPrevGroup = document.createElement("button");
+          btnPrevGroup.textContent = (currentGroupStart - 1) + " ...";
+          btnPrevGroup.className = "salto-btn";
+          btnPrevGroup.onclick = () => mostrarPagina(currentGroupStart - 1);
+          saltoContainer.appendChild(btnPrevGroup);
+        }
+
+        for (let i = currentGroupStart; i <= currentGroupEnd; i++) {
+          let btnPagina = document.createElement("button");
+          btnPagina.textContent = i;
+          btnPagina.className = "salto-btn";
+          btnPagina.onclick = () => mostrarPagina(i);
+          saltoContainer.appendChild(btnPagina);
+        }
+
+        if (currentGroupEnd < totalPaginas) {
+          let btnNextGroup = document.createElement("button");
+          btnNextGroup.textContent = (currentGroupEnd + 1) + " ...";
+          btnNextGroup.className = "salto-btn";
+          btnNextGroup.onclick = () => mostrarPagina(currentGroupEnd + 1);
+          saltoContainer.appendChild(btnNextGroup);
         }
       }
+    }
 
-      function actualizarSaltoPagina() {
-        const saltoContainer = document.getElementById("salto-container");
-        saltoContainer.innerHTML = "";
-        const totalPaginas = Math.ceil(cantidadVideos / videosPorPagina);
-        if (paginaActual <= paginasPorGrupo) {
-          for (let i = 1; i <= Math.min(paginasPorGrupo, totalPaginas); i++) {
-            const btn = document.createElement("button");
-            btn.textContent = i;
-            btn.className = "salto-btn";
-            btn.onclick = () => mostrarPagina(i);
-            saltoContainer.appendChild(btn);
-          }
-          if (totalPaginas > paginasPorGrupo) {
-            const btnNextGroup = document.createElement("button");
-            btnNextGroup.textContent = (paginasPorGrupo + 1) + " ...";
-            btnNextGroup.className = "salto-btn";
-            btnNextGroup.onclick = () => mostrarPagina(paginasPorGrupo + 1);
-            saltoContainer.appendChild(btnNextGroup);
-          }
-        } else {
-          const currentGroupStart = Math.floor((paginaActual - 1) / paginasPorGrupo) * paginasPorGrupo + 1;
-          const currentGroupEnd = Math.min(totalPaginas, currentGroupStart + paginasPorGrupo - 1);
-          if (currentGroupStart > 1) {
-            const btnPrevGroup = document.createElement("button");
-            btnPrevGroup.textContent = (currentGroupStart - 1) + " ...";
-            btnPrevGroup.className = "salto-btn";
-            btnPrevGroup.onclick = () => mostrarPagina(currentGroupStart - 1);
-            saltoContainer.appendChild(btnPrevGroup);
-          }
-          for (let i = currentGroupStart; i <= currentGroupEnd; i++) {
-            const btnPagina = document.createElement("button");
-            btnPagina.textContent = i;
-            btnPagina.className = "salto-btn";
-            btnPagina.onclick = () => mostrarPagina(i);
-            saltoContainer.appendChild(btnPagina);
-          }
-          if (currentGroupEnd < totalPaginas) {
-            const btnNextGroup = document.createElement("button");
-            btnNextGroup.textContent = (currentGroupEnd + 1) + " ...";
-            btnNextGroup.className = "salto-btn";
-            btnNextGroup.onclick = () => mostrarPagina(currentGroupEnd + 1);
-            saltoContainer.appendChild(btnNextGroup);
-          }
-        }
+    // Mostrar la página 1 por defecto
+    mostrarPagina(paginaActual);
+
+    // =================== Funcionalidad de Videos Especiales ===================
+    // Define aquí la llave de acceso válida (puedes cambiarla manualmente cuando lo necesites)
+    const validAccessKey = "X8F7L9W2A6C3Z1B5D0E4YQVTN";
+
+    // Mostrar el modal cuando se haga clic en "Videos Especiales"
+    document.getElementById('btn-videos-especiales').addEventListener('click', () => {
+      document.getElementById('modal-acceso').style.display = 'flex';
+    });
+
+    // Procesar el acceso al presionar el botón "Acceder" en el modal
+    document.getElementById('btn-ingresar').addEventListener('click', () => {
+      const accessKeyInput = document.getElementById('access-key').value.trim();
+      if (accessKeyInput === validAccessKey) {
+        // Guardar en sessionStorage que se ha concedido el acceso
+        sessionStorage.setItem('accessGranted', 'true');
+        // Redirigir a la sección de videos especiales
+        window.location.href = 'videos_especiales/menu.html';
+      } else {
+        document.getElementById('mensaje-error').textContent = 'Llave de acceso incorrecta. Intenta nuevamente.';
       }
+    });
 
-      // Mostrar la página inicial
-      mostrarPagina(paginaActual);
-
-      // =================== Funcionalidad de Videos Especiales ===================
-      const validAccessKey = "X8F7L9W2A6C3Z1B5D0E4YQVTN";
-
-      document.getElementById("btn-videos-especiales").addEventListener("click", () => {
-        document.getElementById("modal-acceso").style.display = "flex";
-      });
-
-      document.getElementById("btn-ingresar").addEventListener("click", () => {
-        const accessKeyInput = document.getElementById("access-key").value.trim();
-        if (accessKeyInput === validAccessKey) {
-          sessionStorage.setItem("accessGranted", "true");
-          window.location.href = "videos_especiales/menu.html";
-        } else {
-          document.getElementById("mensaje-error").textContent =
-            "Llave de acceso incorrecta. Intenta nuevamente.";
-        }
-      });
-
-      document.getElementById("btn-cerrar").addEventListener("click", () => {
-        document.getElementById("modal-acceso").style.display = "none";
-      });
-    </script>
-  </body>
+    // Evento para cerrar el modal
+    document.getElementById('btn-cerrar').addEventListener('click', () => {
+      document.getElementById('modal-acceso').style.display = 'none';
+    });
+  </script>
+</body>
 </html>
