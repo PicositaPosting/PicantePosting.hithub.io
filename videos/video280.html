@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video 280 - Alternando Links</title>
+  <!-- Carga la configuración donde se definen adsterraLink y directLink2 -->
+  <script src="../assets/config.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 360px;
+      margin-bottom: 15px;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .boton-telegram, .boton-mas-videos {
+      display: inline-block;
+      width: 180px;
+      padding: 8px;
+      margin: 5px;
+      text-align: center;
+      background-color: #0088cc;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .boton-mas-videos {
+      background-color: #FF8C00;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Removemos el listener global (si existe) para evitar interferencias.
+      if (typeof abrirDosVeces === "function") {
+        document.removeEventListener("click", abrirDosVeces);
+        console.log("Listener abrirDosVeces removido.");
+      }
+      
+      // Usamos un contador global para alternar los enlaces.
+      let toggleCount = 0;
+      
+      function alternateLink() {
+        toggleCount++;
+        if (toggleCount % 2 === 1) {
+          // En disparos impares se abre adsterraLink.
+          window.open(adsterraLink, "_blank");
+          console.log("Abriendo adsterraLink:", adsterraLink);
+        } else {
+          // En disparos pares se abre directLink2.
+          window.open(directLink2, "_blank");
+          console.log("Abriendo directLink2:", directLink2);
+        }
+      }
+      
+      // Registra el evento para click y también para touchend (para móviles):
+      document.addEventListener("click", function(e) {
+        // Si se hace clic en los botones, se ignoran esos eventos.
+        if (e.target.classList.contains("boton-telegram") || e.target.classList.contains("boton-mas-videos")) {
+          return;
+        }
+        alternateLink();
+      });
+      
+      document.addEventListener("touchend", function(e) {
+        if (e.target.classList.contains("boton-telegram") || e.target.classList.contains("boton-mas-videos")) {
+          return;
+        }
+        alternateLink();
+      });
+      
+      // En el video, al reproducir o finalizar, se llama a la función de alternancia.
+      let video = document.querySelector("video");
+      if (video) {
+        video.addEventListener("play", function() {
+          alternateLink();
+        });
+        video.addEventListener("ended", function() {
+          alternateLink();
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Únete al Canal de Telegram 🌶️🥵</h1>
+  
+  <div class="video-container">
+    <video controls>
+      <source src="https://cdn.videy.co/d0dSESJc1.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+  </div>
+  
+  <a href="https://t.me/picantecinedecalidad" target="_blank" class="boton-telegram">
+    Telegram
+  </a>
+  <button class="boton-mas-videos" onclick="window.location.href='https://picanteposting.netlify.app/'">
+    Más Videos
+  </button>
+</body>
+</html>
