@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🔥 Videos de Picante Posting 🌶️</title>
-    <!-- Google Analytics 4 -->
+  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN9HCSTTHP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -54,6 +54,7 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      text-decoration: none;
     }
     .especial-btn:hover { background-color: #004d00; }
     .menu {
@@ -118,36 +119,6 @@
       font-size: 20px;
       color: #ffcc00;
     }
-    /* Modal de acceso */
-    #modal-acceso {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
-    }
-    #modal-acceso .modal-content {
-      background: #333;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 300px;
-    }
-    #modal-acceso input {
-      padding: 8px;
-      width: 80%;
-      margin-bottom: 10px;
-    }
-    #modal-acceso button {
-      padding: 8px 16px;
-      cursor: pointer;
-      margin: 5px;
-    }
-    #mensaje-error { color: red; }
   </style>
 </head>
 <body>
@@ -156,22 +127,11 @@
   <div class="social-container">
     <a href="https://t.me/picantecinedecalidad" target="_blank" class="social-boton telegram-boton">🔗 Telegram</a>
     <a href="https://www.facebook.com/share/g/16Cbie2pAE/" target="_blank" class="social-boton facebook-boton">📘 Facebook</a>
-    <!-- Botón "Videos Especiales" -->
-    <button id="btn-videos-especiales" class="especial-btn">Videos Especiales</button>
+    <!-- Botón "Videos Especiales" ahora enlaza directamente sin pedir código -->
+    <a href="videos_especiales/menu.html" class="especial-btn">Videos Especiales</a>
   </div>
 
-  <!-- Modal que solicita la llave de acceso -->
-  <div id="modal-acceso">
-    <div class="modal-content">
-      <h2>Llave de Acceso en el Canal de Telegram</h2>
-      <input type="text" id="access-key" placeholder="Ingresa la llave de acceso">
-      <br>
-      <button id="btn-ingresar">Acceder</button>
-      <button id="btn-cerrar">Cerrar</button>
-      <br>
-      <p id="mensaje-error"></p>
-    </div>
-  </div>
+  <!-- Se elimina el modal de acceso y su funcionalidad -->
 
   <!-- Menú de videos regulares -->
   <div class="menu" id="menu-videos"></div>
@@ -288,35 +248,8 @@
       }
     }
 
-    // Mostrar la página 1 por defecto
+    // Mostrar la página actual por defecto
     mostrarPagina(paginaActual);
-
-    // =================== Funcionalidad de Videos Especiales ===================
-    // Define aquí la llave de acceso válida (puedes cambiarla manualmente cuando lo necesites)
-    const validAccessKey = "X8F7L9W2A6C3Z1B5D0E4YQVTN";
-
-    // Mostrar el modal cuando se haga clic en "Videos Especiales"
-    document.getElementById('btn-videos-especiales').addEventListener('click', () => {
-      document.getElementById('modal-acceso').style.display = 'flex';
-    });
-
-    // Procesar el acceso al presionar el botón "Acceder" en el modal
-    document.getElementById('btn-ingresar').addEventListener('click', () => {
-      const accessKeyInput = document.getElementById('access-key').value.trim();
-      if (accessKeyInput === validAccessKey) {
-        // Guardar en sessionStorage que se ha concedido el acceso
-        sessionStorage.setItem('accessGranted', 'true');
-        // Redirigir a la sección de videos especiales
-        window.location.href = 'videos_especiales/menu.html';
-      } else {
-        document.getElementById('mensaje-error').textContent = 'Llave de acceso incorrecta. Intenta nuevamente.';
-      }
-    });
-
-    // Evento para cerrar el modal
-    document.getElementById('btn-cerrar').addEventListener('click', () => {
-      document.getElementById('modal-acceso').style.display = 'none';
-    });
   </script>
   <script type='text/javascript' src='//pl26788146.profitableratecpm.com/61/8f/10/618f10cd0d0ccd61afcd3eda4cec32a4.js'></script>
 </body>

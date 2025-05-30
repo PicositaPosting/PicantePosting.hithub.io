@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🔥 Videos Especiales - Menú 🌶️</title>
-    <!-- Google Analytics 4 -->
+  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN9HCSTTHP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -114,13 +114,6 @@
       color: #ffcc00;
     }
   </style>
-  <script>
-    // Al inicio, verifica si el usuario tiene acceso (en sessionStorage)
-    if (sessionStorage.getItem('accessGranted') !== 'true') {
-      // Si no está autorizado, redirige al índice (donde se pide la llave de acceso)
-      window.location.href = '../index.html';
-    }
-  </script>
 </head>
 <body>
   <h1>🔥 Videos Especiales 🌶️</h1>
@@ -139,17 +132,17 @@
   </div>
 
   <div class="footer">
-    🔥 M\u00C1S VIDEOS ESPECIALES PRONTO! 🔥
+    🔥 MÁS VIDEOS ESPECIALES PRONTO! 🔥
     <div class="footer-subscribe">
-      🔴 SUSCR\u00CDBETE AL CANAL DE TELEGRAM 🔴
+      🔴 SUSCRÍBETE AL CANAL DE TELEGRAM 🔴
     </div>
   </div>
 
   <script>
-    // Configuraci\u00F3n para los videos especiales
-    const cantidadVideos = 41; // Total de videos especiales
-    let paginaActual = 2;
-    const videosPorPagina = 5;
+    // Configuración para los videos especiales
+    const cantidadVideos = 50; // Total de videos especiales
+    let paginaActual = 1;
+    const videosPorPagina = 10;
     const paginasPorGrupo = 5;
 
     function mostrarPagina(pagina) {
@@ -160,9 +153,10 @@
       let inicio = (pagina - 1) * videosPorPagina;
       let fin = Math.min(inicio + videosPorPagina, cantidadVideos);
 
+      // Generar cada enlace para los videos especiales
       for (let i = inicio + 1; i <= fin; i++) {
         let boton = document.createElement("a");
-        // Ajusta el href de acuerdo a la ruta de tus videos especiales
+        // Ajusta este href según la estructura de tus videos especiales
         boton.href = `videsp${i}.html`;
         boton.className = "boton";
         boton.textContent = `VID ESP ${i}`;
@@ -246,6 +240,7 @@
       }
     }
 
+    // Mostrar la primera página
     mostrarPagina(paginaActual);
   </script>
   <script type='text/javascript' src='//pl26788146.profitableratecpm.com/61/8f/10/618f10cd0d0ccd61afcd3eda4cec32a4.js'></script>
