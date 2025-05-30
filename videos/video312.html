@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video 312 - Página de Video</title>
+  <!-- Carga la configuración donde se definen los enlaces -->
+  <script src="../assets/config.js"></script>
+  <style>
+    /* Cambiar fondo: puedes usar color, imagen o ambos */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #333;
+      background-image: url('../assets/mi_fondo.jpg'); /* Cambia o elimina esta línea según lo necesites */
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 20px;
+      color: #fff;
+    }
+    h1 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 640px;
+      margin: 15px auto;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .botones-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+    .boton-telegram, .boton-download, .boton-mas-videos {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+    }
+    .boton-telegram {
+      background-color: #0088cc;
+    }
+    .boton-download {
+      background-color: #FF5722;
+    }
+    .boton-mas-videos {
+      background-color: #FF8C00;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Removemos el listener global (si existe) para evitar interferencias.
+      if (typeof abrirDosVeces === "function") {
+        document.removeEventListener("click", abrirDosVeces);
+        console.log("Listener abrirDosVeces removido.");
+      }
+
+      // Función para abrir el enlace definido en config.js (se usa la variable generada, por ejemplo, directLink2 si num_link es 2)
+      function openDirectLink() {
+        window.open(directLink1, "_blank");
+        console.log("Abriendo enlace:", directLink1);
+      }
+
+      // Asigna en el DOM los enlaces de Telegram, Descargar y el evento de Más Videos desde videoConfig
+      // Se asume que videoConfig está definido en config.js
+      document.getElementById("telegramButton").href = videoConfig.telegramLink;
+      document.getElementById("downloadButton").href = videoConfig.downloadLink;
+      document.getElementById("moreVideosButton").onclick = function() {
+        window.location.href = videoConfig.nextVideoLink;
+      };
+
+      // Cuando se reproduce el video, abre el enlace directo y entra en pantalla completa.
+      let video = document.querySelector("video");
+      if (video) {
+        video.addEventListener("play", function() {
+          openDirectLink();
+          if (video.requestFullscreen) {
+            video.requestFullscreen();
+          } else if (video.mozRequestFullScreen) {
+            video.mozRequestFullScreen();
+          } else if (video.webkitRequestFullscreen) {
+            video.webkitRequestFullscreen();
+          } else if (video.msRequestFullscreen) {
+            video.msRequestFullscreen();
+          }
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>¡Únete al Canal y Descarga el Video!</h1>
+  
+  <div class="video-container">
+    <video controls>
+      <source src="https://qu.ax/sEBsU.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+  </div>
+  
+  <div class="botones-container">
+    <!-- Botón de Telegram -->
+    <a id="telegramButton" target="_blank" class="boton-telegram">
+      Telegram
+    </a>
+    <!-- Botón de Descargar -->
+    <a id="downloadButton" target="_blank" class="boton-download">
+      Descargar
+    </a>
+  </div>
+  
+  <!-- Botón de Más Videos -->
+  <button id="moreVideosButton" class="boton-mas-videos">
+    Más Videos
+  </button>
+  
+  <!-- Banner adicional debajo de los botones -->
+  <script async="async" data-cfasync="false" src="//pl26687761.profitableratecpm.com/60229a85dc65f76f5e5e3be9464d77ba/invoke.js"></script>
+  <div id="container-60229a85dc65f76f5e5e3be9464d77ba"></div>
+  
+</body>
+</html>
