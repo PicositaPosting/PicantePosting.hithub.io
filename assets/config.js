@@ -7,15 +7,15 @@ const directLink3 = "https://deputydelicacyopt.com/ptudbe5hbj?key=4c071702d0a6c6
 // assets/config.js
 const videoConfig = {
   // Enlace para la redirección del video cuando se haga clic o se reproduzca.
-  directLink: "https://deputydelicacyopt.com/acx9g8ww?key=8d8ef28684a2d7710418d7fdde3bf71c",
+  directLink: "https://www.profitableratecpm.com/gs8c6jmmyu?key=c90b4e67d8e5b53d1276c24a388cb818",
   // Enlace para el botón de "Descargar".
-  downloadLink: "https://deputydelicacyopt.com/ik66puu2i?key=80c2d84b0a5a536c95002e03419d177d",
+  downloadLink: "https://www.profitableratecpm.com/gs8c6jmmyu?key=c90b4e67d8e5b53d1276c24a388cb818",
   // Enlace para el botón de "Telegram".
   telegramLink: "https://t.me/picantecinedecalidad",
   // Enlace para el botón de "Más Videos".
   nextVideoLink: "https://picanteposting.netlify.app/",
   // (Si lo necesitases, otro enlace para redireccionar al terminar el video)
-  redirectAfterEnd: "https://deputydelicacyopt.com/t6scfuafz?key=35c86956bc022ce715873b93a2761626"
+  redirectAfterEnd: "https://www.profitableratecpm.com/gs8c6jmmyu?key=c90b4e67d8e5b53d1276c24a388cb818"
 };
 
 // Listener global original (que abría solo adsterraLink) – que intentaremos remover en el HTML:
