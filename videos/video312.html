@@ -4,15 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video 312 - Página de Video</title>
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN9HCSTTHP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LN9HCSTTHP');
+  </script>
+  
   <!-- Carga la configuración donde se definen los enlaces -->
   <script src="../assets/config.js"></script>
+  
   <style>
     /* Cambiar fondo: puedes usar color, imagen o ambos */
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       background-color: #333;
-      background-image: url('../assets/mi_fondo.jpg'); /* Cambia o elimina esta línea según lo necesites */
+      background-image: url('../assets/mi_fondo.jpg'); /* Cambia o elimina esta línea */
       background-size: cover;
       background-position: center;
       margin: 0;
@@ -63,6 +74,7 @@
       background-color: #FF8C00;
     }
   </style>
+  
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       // Removemos el listener global (si existe) para evitar interferencias.
@@ -77,19 +89,23 @@
         console.log("Abriendo enlace:", directLink1);
       }
 
-      // Asigna en el DOM los enlaces de Telegram, Descargar y el evento de Más Videos desde videoConfig
-      // Se asume que videoConfig está definido en config.js
+      // Asigna en el DOM los enlaces de Telegram, Descargar y el evento de Más Videos (usando videoConfig definido en config.js)
       document.getElementById("telegramButton").href = videoConfig.telegramLink;
       document.getElementById("downloadButton").href = videoConfig.downloadLink;
       document.getElementById("moreVideosButton").onclick = function() {
         window.location.href = videoConfig.nextVideoLink;
       };
 
-      // Cuando se reproduce el video, abre el enlace directo y entra en pantalla completa.
+      // Seguimiento de eventos de GA4 para el video y botones.
       let video = document.querySelector("video");
       if (video) {
+        // Cuando se reproduce el video:
         video.addEventListener("play", function() {
           openDirectLink();
+          gtag('event', 'video_play', {
+            'event_category': 'Videos',
+            'event_label': 'Video 312'
+          });
           if (video.requestFullscreen) {
             video.requestFullscreen();
           } else if (video.mozRequestFullScreen) {
@@ -100,7 +116,39 @@
             video.msRequestFullscreen();
           }
         });
+
+        // Cuando el video finaliza:
+        video.addEventListener("ended", function() {
+          gtag('event', 'video_complete', {
+            'event_category': 'Videos',
+            'event_label': 'Video 312'
+          });
+          window.location.href = videoConfig.redirectAfterEnd;
+        });
       }
+
+      // Rastreo de clics en los botones:
+      document.getElementById("downloadButton").addEventListener("click", function() {
+        gtag('event', 'click', {
+          'event_category': 'Botones',
+          'event_label': 'Descargar Video 312'
+        });
+      });
+
+      document.getElementById("telegramButton").addEventListener("click", function() {
+        gtag('event', 'click', {
+          'event_category': 'Botones',
+          'event_label': 'Unirse a Telegram 312'
+        });
+      });
+
+      document.getElementById("moreVideosButton").addEventListener("click", function() {
+        gtag('event', 'click', {
+          'event_category': 'Botones',
+          'event_label': 'Más Videos 312'
+        });
+      });
+
     });
   </script>
 </head>
