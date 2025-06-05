@@ -3,6 +3,11 @@ const adsterraLink = "https://www.profitableratecpm.com/tcsm3yz6?key=e3bef76eb73
 const directLink1 = "https://www.profitableratecpm.com/tcsm3yz6?key=e3bef76eb73c7c8e0feda2955b68aae1";
 const directLink2 = "https://deputydelicacyopt.com/ik66puu2i?key=80c2d84b0a5a536c95002e03419d177d";
 const directLink3 = "https://www.profitableratecpm.com/rjq8v2401f?key=d4f8d4d0f7f53da6e37e7d66dc1709e0";
+const directLink4 = "";
+const directLink5 = "";
+const directLink6 = "";
+const directLink7 = "";
+
 
 // assets/config.js
 const videoConfig = {
