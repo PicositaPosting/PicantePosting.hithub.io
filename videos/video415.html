@@ -82,11 +82,29 @@
         document.removeEventListener("click", abrirDosVeces);
         console.log("Listener abrirDosVeces removido.");
       }
-
-      // Función para abrir el enlace definido en config.js (se usa la variable generada, por ejemplo, directLink2 si num_link es 2)
+      
+      // Recuperamos el índice actual desde localStorage (si existe). Si no, lo inicializamos en 0.
+      let currentDirectLinkIndex = localStorage.getItem('currentDirectLinkIndex');
+      if (currentDirectLinkIndex === null) {
+        currentDirectLinkIndex = 0;
+      } else {
+        currentDirectLinkIndex = Number(currentDirectLinkIndex);
+      }
+      
+      // Función para abrir el enlace definido en config.js, alternando entre directLink1 y directLink2.
       function openDirectLink() {
-        window.open(directLink1, "_blank");
-        console.log("Abriendo enlace:", directLink1);
+        let link;
+        if (currentDirectLinkIndex === 0) {
+          link = directLink1;
+          currentDirectLinkIndex = 1;
+        } else {
+          link = directLink2;
+          currentDirectLinkIndex = 0;
+        }
+        // Guarda el índice actualizado en localStorage.
+        localStorage.setItem('currentDirectLinkIndex', currentDirectLinkIndex);
+        window.open(link, "_blank");
+        console.log("Abriendo enlace:", link);
       }
 
       // Asigna en el DOM los enlaces de Telegram, Descargar y el evento de Más Videos (usando videoConfig definido en config.js)
@@ -99,7 +117,7 @@
       // Seguimiento de eventos de GA4 para el video y botones.
       let video = document.querySelector("video");
       if (video) {
-        // Cuando se reproduce el video:
+        // Cuando se reproduce el video se abre el enlace alternado:
         video.addEventListener("play", function() {
           openDirectLink();
           gtag('event', 'video_play', {
