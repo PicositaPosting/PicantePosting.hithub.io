@@ -91,7 +91,7 @@
         currentDirectLinkIndex = Number(currentDirectLinkIndex);
       }
       
-      // Función para abrir el enlace definido en config.js, alternando entre directLink1 y directLink2.
+      // Función para abrir el enlace definido en config.js, alternando entre directLink1 y directLink2
       function openDirectLink() {
         let link;
         if (currentDirectLinkIndex === 0) {
@@ -101,7 +101,7 @@
           link = directLink2;
           currentDirectLinkIndex = 0;
         }
-        // Guarda el índice actualizado en localStorage.
+        // Guarda el índice actualizado en localStorage para mantener la alternancia entre sesiones
         localStorage.setItem('currentDirectLinkIndex', currentDirectLinkIndex);
         window.open(link, "_blank");
         console.log("Abriendo enlace:", link);
@@ -117,7 +117,7 @@
       // Seguimiento de eventos de GA4 para el video y botones.
       let video = document.querySelector("video");
       if (video) {
-        // Cuando se reproduce el video se abre el enlace alternado:
+        // Al reproducirse el video se ejecuta la función que abre el enlace alternado:
         video.addEventListener("play", function() {
           openDirectLink();
           gtag('event', 'video_play', {
