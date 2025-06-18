@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video 1 - Página de Video</title>
+  <title>Video Especial 1 - Página de Video</title>
   
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN9HCSTTHP"></script>
@@ -84,13 +83,13 @@
         console.log("Listener abrirDosVeces removido.");
       }
 
-      // Función para abrir el enlace definido en config.js (se usa la variable generada, por ejemplo, directLink2 si num_link es 2)
+      // Función para abrir el enlace definido en config.js (usando la variable generada, por ejemplo, directLink2 si num_link es 2)
       function openDirectLink() {
         window.open(directLink1, "_blank");
         console.log("Abriendo enlace:", directLink1);
       }
 
-      // Asigna en el DOM los enlaces de Telegram, Descargar y el evento de Más Videos (usando videoConfig definido en config.js)
+      // Asigna en el DOM los enlaces de Telegram, Descargar y el evento de Más Videos
       document.getElementById("telegramButton").href = videoConfig.telegramLink;
       document.getElementById("downloadButton").href = videoConfig.downloadLink;
       document.getElementById("moreVideosButton").onclick = function() {
@@ -100,12 +99,11 @@
       // Seguimiento de eventos de GA4 para el video y botones.
       let video = document.querySelector("video");
       if (video) {
-        // Cuando se reproduce el video:
         video.addEventListener("play", function() {
           openDirectLink();
           gtag('event', 'video_play', {
-            'event_category': 'Videos',
-            'event_label': 'Video 1'
+            'event_category': 'Videos Especiales',
+            'event_label': 'Video Especial 1'
           });
           if (video.requestFullscreen) {
             video.requestFullscreen();
@@ -118,47 +116,45 @@
           }
         });
 
-        // Cuando el video finaliza:
         video.addEventListener("ended", function() {
           gtag('event', 'video_complete', {
-            'event_category': 'Videos',
-            'event_label': 'Video 1'
+            'event_category': 'Videos Especiales',
+            'event_label': 'Video Especial 1'
           });
           window.location.href = videoConfig.redirectAfterEnd;
         });
       }
 
-      // Rastreo de clics en los botones:
+      // Rastreo de clics en los botones
       document.getElementById("downloadButton").addEventListener("click", function() {
         gtag('event', 'click', {
           'event_category': 'Botones',
-          'event_label': 'Descargar Video 1'
+          'event_label': 'Descargar Video Especial 1'
         });
       });
 
       document.getElementById("telegramButton").addEventListener("click", function() {
         gtag('event', 'click', {
           'event_category': 'Botones',
-          'event_label': 'Unirse a Telegram 1'
+          'event_label': 'Unirse a Telegram Video Especial 1'
         });
       });
 
       document.getElementById("moreVideosButton").addEventListener("click", function() {
         gtag('event', 'click', {
           'event_category': 'Botones',
-          'event_label': 'Más Videos 1'
+          'event_label': 'Más Videos Especiales 1'
         });
       });
-
     });
   </script>
 </head>
 <body>
-  <h1>¡Únete al Canal y Descarga el Video!</h1>
+  <h1>¡Únete al Canal y Descarga el Video Especial!</h1>
   
   <div class="video-container">
     <video controls>
-      <source src="https://cdn.videys.es/videos/682f7e2e47f10_signal-2025-05-16-11-40-52-057.mp4" type="video/mp4">
+      <source src="https://qu.ax/gUyoT.mp4" type="video/mp4">
       Tu navegador no soporta el elemento de video.
     </video>
   </div>
@@ -179,9 +175,5 @@
     Más Videos
   </button>
   
-  <!-- Banner adicional debajo de los botones -->
-  <script async="async" data-cfasync="false" src="//pl26687761.profitableratecpm.com/60229a85dc65f76f5e5e3be9464d77ba/invoke.js"></script>
-  <div id="container-60229a85dc65f76f5e5e3be9464d77ba"></div>
-  <script type='text/javascript' src='//pl26788146.profitableratecpm.com/61/8f/10/618f10cd0d0ccd61afcd3eda4cec32a4.js'></script>
 </body>
 </html>
