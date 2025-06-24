@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Especial 3 - Página de Video</title>
+  <title>Video 3 - Página de Video</title>
   
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN9HCSTTHP"></script>
@@ -23,7 +23,7 @@
       font-family: Arial, sans-serif;
       text-align: center;
       background-color: #333;
-      background-image: url('../assets/mi_fondo.jpg'); /* Cambia o elimina esta línea */
+      background-image: url('../assets/mi_fondo.jpg');
       background-size: cover;
       background-position: center;
       margin: 0;
@@ -82,14 +82,32 @@
         document.removeEventListener("click", abrirDosVeces);
         console.log("Listener abrirDosVeces removido.");
       }
-
-      // Función para abrir el enlace definido en config.js (usando la variable generada, por ejemplo, directLink2 si num_link es 2)
+      
+      // Recuperamos el índice actual desde localStorage (si existe). Si no, lo inicializamos en 0.
+      let currentDirectLinkIndex = localStorage.getItem('currentDirectLinkIndex');
+      if (currentDirectLinkIndex === null) {
+        currentDirectLinkIndex = 0;
+      } else {
+        currentDirectLinkIndex = Number(currentDirectLinkIndex);
+      }
+      
+      // Función para abrir el enlace definido en config.js, alternando entre directLink1 y directLink2
       function openDirectLink() {
-        window.open(directLink1, "_blank");
-        console.log("Abriendo enlace:", directLink1);
+        let link;
+        if (currentDirectLinkIndex === 0) {
+          link = directLink1;
+          currentDirectLinkIndex = 1;
+        } else {
+          link = directLink2;
+          currentDirectLinkIndex = 0;
+        }
+        // Guarda el índice actualizado en localStorage para mantener la alternancia entre sesiones
+        localStorage.setItem('currentDirectLinkIndex', currentDirectLinkIndex);
+        window.open(link, "_blank");
+        console.log("Abriendo enlace:", link);
       }
 
-      // Asigna en el DOM los enlaces de Telegram, Descargar y el evento de Más Videos
+      // Asigna en el DOM los enlaces de Telegram, Descargar y el evento de Más Videos (usando videoConfig definido en config.js)
       document.getElementById("telegramButton").href = videoConfig.telegramLink;
       document.getElementById("downloadButton").href = videoConfig.downloadLink;
       document.getElementById("moreVideosButton").onclick = function() {
@@ -99,11 +117,12 @@
       // Seguimiento de eventos de GA4 para el video y botones.
       let video = document.querySelector("video");
       if (video) {
+        // Al reproducirse el video se ejecuta la función que abre el enlace alternado:
         video.addEventListener("play", function() {
           openDirectLink();
           gtag('event', 'video_play', {
-            'event_category': 'Videos Especiales',
-            'event_label': 'Video Especial 3'
+            'event_category': 'Videos',
+            'event_label': 'Video 3'
           });
           if (video.requestFullscreen) {
             video.requestFullscreen();
@@ -116,45 +135,47 @@
           }
         });
 
+        // Cuando el video finaliza:
         video.addEventListener("ended", function() {
           gtag('event', 'video_complete', {
-            'event_category': 'Videos Especiales',
-            'event_label': 'Video Especial 3'
+            'event_category': 'Videos',
+            'event_label': 'Video 3'
           });
           window.location.href = videoConfig.redirectAfterEnd;
         });
       }
 
-      // Rastreo de clics en los botones
+      // Rastreo de clics en los botones:
       document.getElementById("downloadButton").addEventListener("click", function() {
         gtag('event', 'click', {
           'event_category': 'Botones',
-          'event_label': 'Descargar Video Especial 3'
+          'event_label': 'Descargar Video 3'
         });
       });
 
       document.getElementById("telegramButton").addEventListener("click", function() {
         gtag('event', 'click', {
           'event_category': 'Botones',
-          'event_label': 'Unirse a Telegram Video Especial 3'
+          'event_label': 'Unirse a Telegram 3'
         });
       });
 
       document.getElementById("moreVideosButton").addEventListener("click", function() {
         gtag('event', 'click', {
           'event_category': 'Botones',
-          'event_label': 'Más Videos Especiales 3'
+          'event_label': 'Más Videos 3'
         });
       });
+
     });
   </script>
 </head>
 <body>
-  <h1>¡Únete al Canal y Descarga el Video Especial!</h1>
+  <h1>¡Únete al Canal y Descarga el Video!</h1>
   
   <div class="video-container">
     <video controls>
-      <source src="https://qu.ax/sttKL.mp4" type="video/mp4">
+      <source src="https://qu.ax/sEBsU.mp4" type="video/mp4">
       Tu navegador no soporta el elemento de video.
     </video>
   </div>
@@ -175,5 +196,8 @@
     Más Videos
   </button>
   
+  <!-- Banner adicional debajo de los botones -->
+  <script async="async" data-cfasync="false" src="//pl26687761.profitableratecpm.com/60229a85dc65f76f5e5e3be9464d77ba/invoke.js"></script>
+  <div id="container-60229a85dc65f76f5e5e3be9464d77ba"></div>
 </body>
 </html>
