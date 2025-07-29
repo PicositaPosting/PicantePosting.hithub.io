@@ -21,7 +21,7 @@ const videoConfig = {
   // Enlace para el botón de "Descargar".
   downloadLink: "https://www.profitableratecpm.com/gs8c6jmmyu?key=c90b4e67d8e5b53d1276c24a388cb818",
   // Enlace para el botón de "Telegram".
-  telegramLink: "https://t.me/picantecinedecalidad",
+  telegramLink: "https://t.me/+kJLTMNE0LUQxODYx",
   // Enlace para el botón de "Más Videos".
   nextVideoLink: "https://picanteposting.netlify.app/",
   // (Si lo necesitases, otro enlace para redireccionar al terminar el video)
