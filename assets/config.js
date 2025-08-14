@@ -1,7 +1,7 @@
 // config.js
 const adsterraLink = "https://www.profitableratecpm.com/tcsm3yz6?key=e3bef76eb73c7c8e0feda2955b68aae1";
 const directLink1 = "https://www.profitableratecpm.com/tcsm3yz6?key=e3bef76eb73c7c8e0feda2955b68aae1";
-const directLink2 = "https://mustymix.com/1T0SKl";
+const directLink2 = "https://pizzaapparenthalted.com/etk6d26s?key=dd6eed636566a25f136e018ff8bc0a05";
 const directLink3 = "https://www.profitableratecpm.com/rjq8v2401f?key=d4f8d4d0f7f53da6e37e7d66dc1709e0";
 const directLink4 = "https://www.profitableratecpm.com/m4ssfi2qbr?key=5a95789e92daacb803d6078b2b97ce8a";
 const directLink5 = "https://www.profitableratecpm.com/g2b6z4fgv?key=c908dfa9008818de2fcaff44dc7af342";
